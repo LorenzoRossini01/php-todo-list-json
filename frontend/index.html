@@ -20,7 +20,35 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <div class="container pt-3">
+        <h1>{{title}}</h1>
+        <div class="card my-3">
+          <div class="card-header">Inserisci la tua nuova task</div>
+          <div class="card-body">
+            <div class="input-group">
+              <input
+                type="text"
+                name="new-task"
+                id="new-task"
+                class="form-control"
+              />
+              <button type="button" class="btn btn-outline-warning">
+                Add Task
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">Le tue task</div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" v-for="task in todoList">
+              {{task.name}}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
     <script src="./main.js"></script>
   </body>
 </html>
