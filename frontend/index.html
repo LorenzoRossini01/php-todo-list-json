@@ -32,8 +32,14 @@
                 name="new-task"
                 id="new-task"
                 class="form-control"
+                v-model="newTask.name"
+                @keyup.enter="addNewTask(newTask)"
               />
-              <button type="button" class="btn btn-outline-warning">
+              <button
+                type="button"
+                class="btn btn-outline-warning"
+                @click="addNewTask(newTask)"
+              >
                 Add Task
               </button>
             </div>
