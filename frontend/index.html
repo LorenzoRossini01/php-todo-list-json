@@ -42,7 +42,12 @@
         <div class="card">
           <div class="card-header">Le tue task</div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item" v-for="task in todoList">
+            <li
+              class="list-group-item"
+              v-for="task in todoList"
+              :class="task.done?'checked':''"
+              @click="task.done=!task.done"
+            >
               {{task.name}}
             </li>
           </ul>
