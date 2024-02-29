@@ -4,14 +4,22 @@ const app = createApp({
   data() {
     return {
       title: "Persistent todo list",
-      todoList: [
-        { name: "Task 1", done: false },
-        { name: "Task 2", done: false },
-        { name: "Task 3", done: false },
-        { name: "Task 4", done: false },
-        { name: "Task 5", done: false },
-      ],
+      todoList: [],
     };
+  },
+
+  methods: {
+    fetchTaskArray() {
+      axios
+        .get("http://localhost/php-todo-list-json/backend/api/get-list.php")
+        .then((response) => {
+          this.todoList = response.data;
+        });
+    },
+  },
+
+  mounted() {
+    this.fetchTaskArray();
   },
 });
 
