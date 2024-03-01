@@ -21,6 +21,7 @@ const app = createApp({
 
       const data = { name: this.newTask.name, done: false };
 
+      this.newTask.name = "";
       const params = {
         headers: { "Content-Type": "multipart/form-data" },
       };
@@ -30,7 +31,7 @@ const app = createApp({
         .then((response) => {
           console.log(response.data);
 
-          // this.todoList = response.data;
+          this.todoList = response.data;
         });
     },
 
@@ -38,7 +39,7 @@ const app = createApp({
       console.log(index, task);
       const newStatus = !task.done;
 
-      const data = { index, text: task.text, done: newStatus };
+      const data = { index, name: task.name, done: newStatus };
 
       const params = {
         headers: { "Content-Type": "multipart/form-data" },
@@ -49,7 +50,7 @@ const app = createApp({
         .then((response) => {
           console.log(response.data);
 
-          // this.todoList = response.data;
+          this.todoList = response.data;
         });
     },
 
