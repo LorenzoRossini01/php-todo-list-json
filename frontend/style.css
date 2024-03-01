@@ -1,3 +1,7 @@
-li.checked {
-  text-decoration: line-through;
+.list-group-item {
+  cursor: pointer;
+}
+
+i {
+  background-color: red;
 }
